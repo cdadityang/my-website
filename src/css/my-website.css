@@ -1,0 +1,28 @@
+p > a {
+  font-size: 1em;
+}
+
+.my-header-intro-dsk-content p {
+  font-size: 1.8em;
+  line-height: 1.2;
+}
+
+.my-header-intro-dsk-content h1 {
+  font-size: 4em;
+}
+
+.header-intro-dsk-username-tag {
+  font-size: 2.2em !important;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.header-intro-mob-username-tag {
+  font-size: 1.5em !important;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.my-social-icons a {
+  border-bottom: none;
+}
