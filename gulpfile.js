@@ -11,7 +11,8 @@ var globs = {
   dist: './dist',
   css: './src/css/**/*.css',
   html: './src/*.html',
-  images: './src/assets/**'
+  images: './src/assets/**',
+  manifest: './src/manifest.json'
 };
 
 // First clean the dist folder, it will delete it and recreate it
@@ -24,6 +25,7 @@ gulp.task('clean', gulp.series(function() {
 // You can also perform scaling and compression on images
 gulp.task('assets', gulp.series('clean', function() {
   var images = gulp.src(globs.images).pipe(gulp.dest(globs.dist + '/assets'));
+  var manifest = gulp.src(globs.manifest).pipe(gulp.dest(globs.dist + '/'));
 
   return merge(images);
 }));
