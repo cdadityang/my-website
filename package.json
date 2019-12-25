@@ -4,7 +4,9 @@
   "description": "The codebase for my personal website - cdadityang",
   "main": "index.js",
   "scripts": {
-    "build": "gulp"
+    "build": "gulp",
+    "test_start": "python -m SimpleHTTPServer 3005 &",
+    "test_stop": "kill $(lsof -t -i:3005)"
   },
   "repository": {
     "type": "git",

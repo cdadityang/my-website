@@ -1,2 +1,5 @@
 node_modules/
 dist/
+
+# Spec Logs Ignore
+/log/selenium.log

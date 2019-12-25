@@ -7,8 +7,8 @@
 > The codebase for my website that will serve as my portfolio.
 
 <!-- Add CI/CD info, language, main frameworks used from shields.io. Example -->
-[![React 16.12](https://img.shields.io/badge/React-v16.12-blue.svg)](https://reactjs.org/docs)
 [![Rspec 3.9](https://img.shields.io/badge/RSpec-v3.9-red.svg)](http://rspec.info/)
+[![Build Status](https://travis-ci.org/cdadityang/my-website.svg?branch=master)](https://travis-ci.org/cdadityang/my-website)
 [![Issues](https://img.shields.io/github/issues/cdadityang/my-website.svg)](https://github.com/cdadityang/my-website/issues)
 [![Issues closed](https://img.shields.io/github/issues-closed/cdadityang/my-website.svg)](https://github.com/cdadityang/my-website/issues)
 [![Pulls](https://img.shields.io/github/issues-pr/cdadityang/my-website.svg)](https://github.com/cdadityang/my-website/pulls)
