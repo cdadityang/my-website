@@ -14,6 +14,7 @@
 [![Pulls](https://img.shields.io/github/issues-pr/cdadityang/my-website.svg)](https://github.com/cdadityang/my-website/pulls)
 [![Pulls](https://img.shields.io/github/issues-pr-closed/cdadityang/my-website.svg)](https://github.com/cdadityang/my-website/pulls)
 [![License](https://img.shields.io/github/license/cdadityang/my-website.svg)](https://choosealicense.com/licenses/agpl-3.0/)
+[![CLA assistant](https://cla-assistant.io/readme/badge/cdadityang/my-website)](https://cla-assistant.io/cdadityang/my-website)
 
 **[Visit my website](https://cdadityang.xyz)**
 
