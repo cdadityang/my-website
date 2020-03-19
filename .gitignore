@@ -1,5 +1,5 @@
 node_modules/
-dist/
+build/
 
 # Spec Logs Ignore
 /log/selenium.log

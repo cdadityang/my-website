@@ -20,13 +20,13 @@ describe 'Home Spec', js: true do
     end
 
     it "shows my short description" do
-      expect(page).to have_selector('p', text: /I'm into full-stack Web Development. I'm curious about Blockchain, AI and open-source./)
+      expect(page).to have_selector('p', text: /I'm into full-stack web development and a blockchain newbie./)
     end
   end
 
   describe "MainSection" do
     it "shows a little info" do
-      expect(page).to have_selector('p', text: /More things will come soon, till then check out some stuff that I did:/)
+      expect(page).to have_selector('p', text: /Holla there, welcome to my official website./)
     end
 
     context "shows navigation links in form of buttons" do
@@ -36,7 +36,11 @@ describe 'Home Spec', js: true do
     end
   end
 
-  describe "Social Links" do
+  describe "Social Text and Links" do
+    it "shows social CTA text" do
+      expect(page).to have_selector('p', text: /I do maintain and write about tech in general on my blog./)
+    end
+
     it "shows blog link" do
       expect(page).to have_link('', href: 'https://blog.cdadityang.xyz')
     end
@@ -60,23 +64,19 @@ describe 'Home Spec', js: true do
 
   describe "Footer" do
     it "shows copyrights info" do
-      expect(page).to have_selector('footer .footer-legal p', text: /Copyrights ©, 2019 - cdadityang/)
+      expect(page).to have_selector('footer .footer-legal p', text: "Copyrights ©, 2019-2020 - cdadityang")
     end
 
     it "Copyrights cdadityang must be clickable to /" do
       expect(page).to have_link('cdadityang', href: '/')
     end
 
-    it "shows Privacy Policy link" do
-      expect(page).to have_link('Privacy', href: 'https://drabkirn.cdadityang.xyz/legal/privacy_policy')
+    it "shows Palace link" do
+      expect(page).to have_link('Palace', href: 'https://drabkirn.cdadityang.xyz/palace')
     end
 
-    it "shows Terms and Conditions link" do
-      expect(page).to have_link('Terms', href: 'https://drabkirn.cdadityang.xyz/legal/terms_conditions')
-    end
-
-    it "shows Credits link" do
-      expect(page).to have_link('Credits', href: 'https://drabkirn.cdadityang.xyz/legal/credits')
+    it "shows Contact link" do
+      expect(page).to have_link('Contact', href: 'mailto:me@cdadityang.xyz')
     end
 
     it "Shows Baaaaaa text" do

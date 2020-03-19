@@ -2,6 +2,10 @@ p > a {
   font-size: 1em;
 }
 
+.fs-1-6 {
+  font-size: 1.6em;
+}
+
 .my-header-intro-dsk-content p {
   font-size: 1.8em;
   line-height: 1.2;

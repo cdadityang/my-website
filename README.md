@@ -84,7 +84,7 @@
 ## Contributing
 If you would like to contribute, please check [this contributing guide](https://github.com/cdadityang/my-website/blob/master/CONTRIBUTING.md)
 
-Please check [this Code of Conduct guide](https://github.com/cdadityang/my-website/blob/master/CODE_OF_CONDUCT.md) before contributing or having any kind of discussion(issues, pull requests etc.) with the Bare Rails project!
+Please check [this Code of Conduct guide](https://github.com/cdadityang/my-website/blob/master/CODE_OF_CONDUCT.md) before contributing or having any kind of discussion(issues, pull requests etc.) with the cdadityang-website project!
 
 -----
 
@@ -94,4 +94,4 @@ Need any help? Have any Questions? Or just say us hi!
 1. [Twitter](https://twitter.com/cdadityang)
 2. [Instagram](https://instagram.com/cdadityang)
 3. [My Blog](https://blog.cdadityang.xyz)
-4. [Drabkirn](https://go.cdadityang.xyz/drab)
+4. [Drabkirn](https://go.cdadityang.xyz/go)
