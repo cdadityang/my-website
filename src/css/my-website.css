@@ -30,3 +30,9 @@ p > a {
 .my-social-icons a {
   border-bottom: none;
 }
+
+@media only screen and (max-width: 480px) {
+  .fs-1-6 {
+    font-size: 1.4em;
+  }
+}
