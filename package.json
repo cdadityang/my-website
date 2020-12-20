@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "gulp",
-    "test_start": "python -m SimpleHTTPServer 3005 &",
+    "test_start": "python3 -m http.server 3005 &",
     "test_stop": "kill $(lsof -t -i:3005)"
   },
   "repository": {
