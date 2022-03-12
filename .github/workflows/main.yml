@@ -1,0 +1,91 @@
+name: Web_CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+
+concurrency: 
+  group: ${ GITHUB_REF }
+  cancel-in-progress: true
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checking out latest push
+        uses: actions/checkout@v2
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.5
+
+      - name: Cache Ruby Gems
+        uses: actions/cache@v2
+        with:
+          path: vendor/bundle
+          key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-gems-
+
+      - name: Setup Node and Yarn
+        uses: actions/setup-node@v2
+        with:
+          node-version: '12.22.7'
+          cache: 'yarn'
+
+      - name: "Cache Yarn"
+        uses: actions/cache@v2
+        with:
+          path: '**/node_modules'
+          key: ${{ runner.os }}-modules-${{ hashFiles('**/yarn.lock') }}
+        
+      - name: Install Yarn
+        if: steps.yarn-cache.outputs.cache-hit != 'true'
+        run: yarn install
+      
+      - name: Install Dependencies
+        run: |
+          sudo apt install -yqq zlib1g-dev build-essential libreadline-dev libxslt1-dev software-properties-common libffi-dev python3 xvfb firefox
+          wget https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-linux64.tar.gz
+          tar -zxvf geckodriver-v0.26.0-linux64.tar.gz
+          sudo mv geckodriver /usr/local/bin/
+          export DISPLAY=':99.0'
+          Xvfb :99.0 > /dev/null 2>&1 &
+          gem install bundler
+      
+      - name: Install Gems
+        run: |
+          bundle config path vendor/bundle
+          bundle install --jobs 4 --retry 3
+
+      - name: Run tests
+        run: |
+          bundle exec rspec
+
+  security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.5
+
+      - name: Install Brakeman
+        run: |
+          gem install brakeman
+
+      - name: Run Brakeman
+        run: |
+          brakeman -f json > tmp/brakeman.json || exit 0
+
+      - name: Brakeman Report
+        uses: devmasx/brakeman-linter-action@v1.0.0
+        env:
+          REPORT_PATH: tmp/brakeman.json
+          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
