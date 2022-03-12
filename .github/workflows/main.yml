@@ -76,7 +76,10 @@ jobs:
         with:
           ruby-version: 2.7.5
 
-      - name: Setup Bundler Audit
-        uses: andrewmcodes/bundler-audit-action@main
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Install Bundler Audit
+        run: |
+          gem install bundler-audit
+
+      - name: Run Bundler Audit
+        run: |
+          bundler-audit || exit 0

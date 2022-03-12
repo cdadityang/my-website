@@ -4,4 +4,4 @@ build/
 # Spec Logs Ignore
 /log/selenium.log
 
-/tmp/brakeman.json
+/tmp
