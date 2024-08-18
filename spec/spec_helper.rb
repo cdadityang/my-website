@@ -8,16 +8,18 @@ Selenium::WebDriver.logger.level = :debug
 Selenium::WebDriver.logger.output = File.dirname(Dir.pwd) + '/my-website/log/selenium.log'
 ENV['DISPLAY']=':99.0'
 
-geckodriver_path = "/usr/local/bin/geckodriver"
+# geckodriver_path = "/usr/local/bin/geckodriver"
 firefox_binary_path = "/snap/bin/firefox"
 # Enable for local
 # firefox_binary_path = "/Applications/Firefox.app/Contents/MacOS/firefox"
-driver_service = Selenium::WebDriver::Firefox::Service.new
-driver_service.executable_path = geckodriver_path
-options = Selenium::WebDriver::Firefox::Options.new(binary: firefox_binary_path)
+# driver_service = Selenium::WebDriver::Firefox::Service.new
+# driver_service.executable_path = geckodriver_path
 
 Capybara.register_driver :firefox do |app|
-  Capybara::Selenium::Driver.new(app, service: driver_service, options: options)
+  options = Selenium::WebDriver::Firefox::Options.new
+  options.binary = firefox_binary_path
+
+  Capybara::Selenium::Driver.new(app, browser: :firefox, options: options)
 end
 
 Capybara.default_driver = :firefox
