@@ -1,9 +1,9 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.5'
+ruby '3.3.4'
 
-gem 'rspec', '~> 3.9'
-gem 'capybara', '~> 3.30'
-gem 'selenium-webdriver', '~> 3.142', '>= 3.142.6'
-gem 'bundler-audit', '~> 0.9.0.1'
+gem 'rspec', '~> 3.13'
+gem 'capybara', '~> 3.40'
+gem 'selenium-webdriver', '~> 4.23'
+gem 'bundler-audit', '~> 0.9.1'

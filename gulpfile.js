@@ -27,7 +27,7 @@ gulp.task('clean', gulp.series(function() {
 // Move manifest.json to /build folder
 // You can also perform scaling and compression on images
 gulp.task('assets', gulp.series('clean', function() {
-  var images = gulp.src(globs.images).pipe(gulp.dest(globs.build + '/assets'));
+  var images = gulp.src(globs.images, { encoding: false }).pipe(gulp.dest(globs.build + '/assets'));
   var fonts = gulp.src(globs.fonts).pipe(gulp.dest(globs.build + '/fonts'));
   var manifest = gulp.src(globs.manifest).pipe(gulp.dest(globs.build + '/'));
 

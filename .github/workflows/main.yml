@@ -21,7 +21,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.5
+          ruby-version: 3.3.4
 
       - name: Cache Ruby Gems
         uses: actions/cache@v2
@@ -34,7 +34,7 @@ jobs:
       - name: Setup Node and Yarn
         uses: actions/setup-node@v2
         with:
-          node-version: '12.22.7'
+          node-version: '18.20.4'
           cache: 'yarn'
 
       - name: "Cache Yarn"
@@ -46,16 +46,22 @@ jobs:
       - name: Install Yarn
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install
+
+      - name: Set up Firefox
+        uses: browser-actions/setup-firefox@v1
+        with:
+          firefox-version: latest
       
       - name: Install Dependencies
         run: |
-          sudo apt install -yqq zlib1g-dev build-essential libreadline-dev libxslt1-dev software-properties-common libffi-dev python3 xvfb firefox
-          wget https://github.com/mozilla/geckodriver/releases/download/v0.26.0/geckodriver-v0.26.0-linux64.tar.gz
-          tar -zxvf geckodriver-v0.26.0-linux64.tar.gz
+          sudo apt install -yqq zlib1g-dev build-essential libreadline-dev libxslt1-dev software-properties-common libffi-dev python3 xvfb
+          wget https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-linux64.tar.gz
+          tar -zxvf geckodriver-v0.35.0-linux64.tar.gz
           sudo mv geckodriver /usr/local/bin/
           export DISPLAY=':99.0'
           Xvfb :99.0 > /dev/null 2>&1 &
           gem install bundler
+          echo $(which firefox)
       
       - name: Install Gems
         run: |
@@ -74,7 +80,7 @@ jobs:
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.5
+          ruby-version: 3.3.4
 
       - name: Install Bundler Audit
         run: |
