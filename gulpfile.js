@@ -19,7 +19,7 @@ var globs = {
 
 // First clean the build folder, it will delete it and recreate it
 gulp.task('clean', gulp.series(function() {
-  return gulp.src(globs.build, {read: false})
+  return gulp.src(globs.build, { read: false, encoding: false })
     .pipe(clean());
 }));
 
@@ -28,8 +28,8 @@ gulp.task('clean', gulp.series(function() {
 // You can also perform scaling and compression on images
 gulp.task('assets', gulp.series('clean', function() {
   var images = gulp.src(globs.images, { encoding: false }).pipe(gulp.dest(globs.build + '/assets'));
-  var fonts = gulp.src(globs.fonts).pipe(gulp.dest(globs.build + '/fonts'));
-  var manifest = gulp.src(globs.manifest).pipe(gulp.dest(globs.build + '/'));
+  var fonts = gulp.src(globs.fonts, { encoding: false }).pipe(gulp.dest(globs.build + '/fonts'));
+  var manifest = gulp.src(globs.manifest, { encoding: false }).pipe(gulp.dest(globs.build + '/'));
 
   return merge(images);
 }));
@@ -37,7 +37,7 @@ gulp.task('assets', gulp.series('clean', function() {
 // Take all CSS in /css folder -> Add auto prefixer to them
 // Then Minify and export to /build folder
 gulp.task('styles', gulp.series('clean', function() {
-  return gulp.src(globs.css)
+  return gulp.src(globs.css, { encoding: false })
     .pipe(autoprefixer())
     .pipe(purgecss({
       content: [globs.html]
@@ -48,7 +48,7 @@ gulp.task('styles', gulp.series('clean', function() {
 
 // Take the HTML file, minify it with params below
 gulp.task('html', gulp.series('clean', function() {
-  return gulp.src(globs.html)
+  return gulp.src(globs.html, { encoding: false })
   .pipe(htmlmin({
     collapseWhitespace: true,
     removeComments: true
