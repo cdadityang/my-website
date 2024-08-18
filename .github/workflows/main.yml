@@ -46,10 +46,15 @@ jobs:
       - name: Install Yarn
         if: steps.yarn-cache.outputs.cache-hit != 'true'
         run: yarn install
+
+      - name: Set up Firefox
+        uses: browser-actions/setup-firefox@v1
+        with:
+          firefox-version: latest
       
       - name: Install Dependencies
         run: |
-          sudo apt install -yqq zlib1g-dev build-essential libreadline-dev libxslt1-dev software-properties-common libffi-dev python3 xvfb firefox
+          sudo apt install -yqq zlib1g-dev build-essential libreadline-dev libxslt1-dev software-properties-common libffi-dev python3 xvfb
           wget https://github.com/mozilla/geckodriver/releases/download/v0.35.0/geckodriver-v0.35.0-linux64.tar.gz
           tar -zxvf geckodriver-v0.35.0-linux64.tar.gz
           sudo mv geckodriver /usr/local/bin/
