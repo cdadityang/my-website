@@ -9,7 +9,7 @@
 <!-- Add CI/CD info, language, main frameworks used from shields.io. Example -->
 [![Ruby 3.3.4](https://img.shields.io/badge/Ruby-v3.3.4-green.svg)](https://www.ruby-lang.org/en/)
 [![Rspec 3.13](https://img.shields.io/badge/RSpec-v3.13-red.svg)](http://rspec.info/)
-[![Build Status](https://travis-ci.org/cdadityang/my-website.svg?branch=master)](https://travis-ci.org/cdadityang/my-website)
+[![Build Status](https://github.com/cdadityang/my-website/actions/workflows/main.yml/badge.svg)](https://github.com/cdadityang/my-website/actions/workflows/main.yml)
 [![Issues](https://img.shields.io/github/issues/cdadityang/my-website.svg)](https://github.com/cdadityang/my-website/issues)
 [![Issues closed](https://img.shields.io/github/issues-closed/cdadityang/my-website.svg)](https://github.com/cdadityang/my-website/issues)
 [![Pulls](https://img.shields.io/github/issues-pr/cdadityang/my-website.svg)](https://github.com/cdadityang/my-website/pulls)
