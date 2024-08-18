@@ -5,3 +5,5 @@ build/
 /log/selenium.log
 
 /tmp
+
+.DS_Store
