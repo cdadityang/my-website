@@ -14,12 +14,10 @@ firefox_binary_path = "/snap/bin/firefox"
 # firefox_binary_path = "/Applications/Firefox.app/Contents/MacOS/firefox"
 # driver_service = Selenium::WebDriver::Firefox::Service.new
 # driver_service.executable_path = geckodriver_path
+firefox_options = Selenium::WebDriver::Firefox::Options.new(binary: firefox_binary_path)
 
 Capybara.register_driver :firefox do |app|
-  options = Selenium::WebDriver::Firefox::Options.new
-  options.binary = firefox_binary_path
-
-  Capybara::Selenium::Driver.new(app, browser: :firefox, options: options)
+  Capybara::Selenium::Driver.new(app, options: firefox_options, browser: :firefox)
 end
 
 Capybara.default_driver = :firefox
